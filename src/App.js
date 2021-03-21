@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import articles from "./data";
+import SingleArticle from "./SingleArticle";
 
-function App() {
+const getStorageTheme = () => {
+  let theme = "light-theme";
+  if (localStorage.getItem("theme")) {
+    theme = localStorage.getItem("theme");
+  }
+  return theme; // returns this theme on initial render
+};
+
+const App = () => {
+  const [theme, setTheme] = useState(getStorageTheme());
+
+  // TOGGLING
+  const toggleTheme = () => {
+    if (theme === "light-theme") {
+      setTheme("dark-theme");
+    } else {
+      setTheme("light-theme");
+    }
+  };
+
+  useEffect(() => {
+    document.documentElement.classList = theme; // accessing HTML node
+    localStorage.setItem("theme", theme); // on initial render set theme value to light-theme
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <nav>
+        <div className="nav-center">
+          <h1>overreacted</h1>
+          <button className="btn" onClick={toggleTheme}>
+            {theme === "light-theme" ? "Dark mode" : "Light mode"}
+          </button>
+        </div>
+      </nav>
+
+      <section className="articles">
+        {articles.map((item) => {
+          return <SingleArticle key={item.id} {...item} />;
+        })}
+      </section>
+    </main>
   );
-}
+};
 
 export default App;
