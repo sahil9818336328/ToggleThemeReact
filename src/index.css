@@ -6,20 +6,20 @@ Global Styles
 */
 
 :root {
-  --clr-bcg: #fff;
-  --clr-font: #282c35;
-  --clr-primary: #d23669;
+  --clr-bcg: #e9ecef;
+  --clr-font: #343a40;
+  --clr-primary: #56cfe1;
 }
 
 .dark-theme {
-  --clr-bcg: #282c35;
-  --clr-font: #fff;
-  --clr-primary: #ffa7c4;
+  --clr-bcg: #343a40;
+  --clr-font: #e9ecef;
+  --clr-primary: #72efdd;
 }
 .light-theme {
-  --clr-bcg: #fff;
-  --clr-font: #282c35;
-  --clr-primary: #d23669;
+  --clr-bcg: #e9ecef;
+  --clr-font: #343a40;
+  --clr-primary: #56cfe1;
 }
 * {
   margin: 0;
