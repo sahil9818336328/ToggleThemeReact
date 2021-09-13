@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 /*
 =============== 
 Global Styles
@@ -27,7 +27,7 @@ Global Styles
   box-sizing: border-box;
 }
 body {
-  font-family: "Syne Mono", monospace;
+  font-family: 'Syne Mono', monospace;
   background: var(--clr-bcg);
   color: var(--clr-font);
   line-height: 1.5;
@@ -96,4 +96,80 @@ Navbar
   letter-spacing: 2px;
   cursor: pointer;
   outline: none;
+}
+
+/* LOADER */
+
+#overlayer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  z-index: 999999;
+  border: 4px solid #fff;
+  top: 50%;
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--clr-white);
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
 }
